@@ -3,21 +3,36 @@
 #include <string.h>
 #include <math.h>
 
-
-/* that is the pranciple struct  call compition */
-typedef struct 
+typedef struct next_cm
 {
-    /*equipe id*/
-    char nm_cmp;
-    equipe equipe;
-    comp *next;
-}comp;
-    comp *l;
+    char *enemy1_nm;
+    char *enemy2_nm;
+    char *place;
+    int month,day,hour;
+    struct next_cm *next;
+}next_com;
+next_com *s;
 
+typedef struct playr
+{
+   char *name;
+   int age;
+   int hight;
+   int year,month,day;
+   struct playr *next; 
+}player;
+player *c;
+
+/*each equipe has many players and each player has name ...*/
+typedef struct playrs
+{
+    player player; 
+    struct playrs *next;
+}players;
+players *f;
 /*equpes has many equipes the next struct it's for equipe*/
-typedef struct 
+typedef struct equpe
 {
-    equipe *next;
     char *name;
     /*player id*/
     players player;
@@ -28,35 +43,16 @@ typedef struct
     int ch_win;
     /*nomber of champione that they lose*/
     int ch_lose;
+    struct equpe *next;
      
 }equipe;
 equipe *k;
-
-/*each equipe has many players and each player has name ...*/
-typedef struct 
+/* that is the pranciple struct  call compition */
+typedef struct cop
 {
-    players *next;
-    player player; 
-}players;
-players *f;
-
-typedef struct 
-{
-   player *next; 
-   char *name;
-   int age;
-   int hight;
-   int year,month,day;
-}player;
-player *c;
-
-
-typedef struct 
-{
-    next_com *next;
-    char *enemy1_nm;
-    char *enemy2_nm;
-    char *place;
-    int month,day,hour;
-}next_com;
-next_com *s;
+    /*equipe id*/
+    char nm_cmp;
+    equipe equipe;
+    struct cop *next;
+}comp;
+    comp *l;
