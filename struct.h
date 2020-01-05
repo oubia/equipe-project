@@ -3,56 +3,45 @@
 #include <string.h>
 #include <math.h>
 
-typedef struct next_cm
+/*structeur de next compition*/
+typedef struct
 {
-    char *enemy1_nm;
-    char *enemy2_nm;
-    char *place;
+    char enemy1_nm[30];
+    char enemy2_nm[30];
+    char place[30];
     int month,day,hour;
-    struct next_cm *next;
+    struct next_com *next;
 }next_com;
-next_com *s;
-
-typedef struct playr
+next_com *N;
+ 
+/*structeur de les joeurs*/
+typedef struct
 {
-   char *name;
+   char nm[30];
    int age;
    int hight;
-   int year,month,day;
-   struct playr *next; 
+   
 }player;
-player *c;
-
-/*each equipe has many players and each player has name ...*/
-typedef struct playrs
-{
-    player player; 
-    struct playrs *next;
-}players;
-players *f;
 /*equpes has many equipes the next struct it's for equipe*/
-typedef struct equpe
+typedef struct 
 {
-    char *name;
+    char name[30];
     /*player id*/
-    players player;
+    
     /*next competition id*/
     next_com Ncompetion;
     int nbplayer;
-    /*nomber of champione that they win*/
-    int ch_win;
-    /*nomber of champione that they lose*/
-    int ch_lose;
-    struct equpe *next;
-     
+    player player;
 }equipe;
-equipe *k;
+
+
 /* that is the pranciple struct  call compition */
-typedef struct cop
+typedef struct
 {
     /*equipe id*/
-    char nm_cmp;
+    char nm_comp[30];
+    next_com next_com;
     equipe equipe;
-    struct cop *next;
+    struct comp *next;
 }comp;
-    comp *l;
+comp *lsit;
